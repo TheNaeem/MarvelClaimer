@@ -139,13 +139,47 @@ public class MarvelInsiderClient : RestClient
         Log.Information("Redeemed {id} with answer {answer}", id, answer);
     }
 
-    public void FinishProfile()
+    public void FillQuestionare(string body)
     {
         var req = new RestRequest("questionnaire/rpc", Method.Post);
-        req.AddJsonBody(Properties.Resources.ProfileQnaBody);
+        req.AddJsonBody(body);
 
         Execute(req);
+    }
 
-        Log.Information("Claimed 25k points.");
+    public void VisitTwitter()
+    {
+        Execute(new("ca/c2a92ef1d1757d9005adc5f0861fa621"));
+    }
+
+    public void VisitFacebook()
+    {
+        Execute(new("ca/c2a92ef1d1757d90c3720bb6136f15ea"));
+    }
+
+    public void DoReferrals()
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var random = new Random();
+
+        for (int i = 0; i < 10; i++)
+        {
+
+            var code = new string(Enumerable.Repeat(chars, 8).Select(s => s[random.Next(s.Length)]).ToArray()); 
+            var link = "https://marvel.com/insider?_cts_=" + code;
+
+            var refReq = new RestRequest("user/rpc", Method.Post);
+
+            refReq.AddJsonBody(new
+            {
+                dest_id = 2,
+                reason_id = 6,
+                code = code,
+                url = link,
+                ct_rpc_action = "process_social_post"
+            });
+
+            Execute(refReq);
+        }
     }
 }

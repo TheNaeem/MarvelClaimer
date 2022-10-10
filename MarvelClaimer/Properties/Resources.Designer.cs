@@ -61,11 +61,47 @@ namespace MarvelClaimer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;ct_rpc_action&quot;:&quot;questionnaire_submit&quot;,&quot;answers&quot;:{&quot;1&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null},&quot;2&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null},&quot;3&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null},&quot;4&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null},&quot;5&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null},&quot;6&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null},&quot;7&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null}},&quot;questionnaire_id&quot;:&quot;ea6dd091-4d42-4981-9d32-6c4eeb48e164&quot;,&quot;questionnaire_type&quot;:&quot;survey&quot;}.
+        /// </summary>
+        internal static string NftQnaBody {
+            get {
+                return ResourceManager.GetString("NftQnaBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {&quot;ct_rpc_action&quot;:&quot;questionnaire_submit&quot;,&quot;answers&quot;:{&quot;2&quot;:{&quot;selected_answers&quot;:[],&quot;response_text&quot;:&quot;30&quot;},&quot;4&quot;:{&quot;selected_answers&quot;:[&quot;2&quot;],&quot;response_text&quot;:null},&quot;5&quot;:{&quot;selected_answers&quot;:[],&quot;response_text&quot;:&quot;20&quot;},&quot;6&quot;:{&quot;selected_answers&quot;:[&quot;3&quot;],&quot;response_text&quot;:null},&quot;7&quot;:{&quot;selected_answers&quot;:[&quot;2&quot;],&quot;response_text&quot;:null},&quot;8&quot;:{&quot;selected_answers&quot;:[&quot;3&quot;],&quot;response_text&quot;:null},&quot;9&quot;:{&quot;selected_answers&quot;:[&quot;4&quot;],&quot;response_text&quot;:null},&quot;10&quot;:{&quot;selected_answers&quot;:[&quot;2&quot;],&quot;response_text&quot;:null},&quot;11&quot;:{&quot;selected_answers&quot;:[&quot;3&quot;],&quot;response_text&quot;:nul [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ProfileQnaBody {
             get {
                 return ResourceManager.GetString("ProfileQnaBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;page_data&quot;:{&quot;text&quot;:[&quot;heading.invite using link&quot;,&quot;success.invite friends&quot;,&quot;text.explain earn points when invites join&quot;,&quot;text.explain invite points earning 2&quot;,&quot;text.explain referral link&quot;,&quot;text.points earned&quot;,&quot;text.twitter invite friends default tweet&quot;,&quot;title.share on facebook&quot;,&quot;title.share on twitter&quot;,&quot;word.share&quot;,&quot;cms.month:january&quot;,&quot;cms.month:february&quot;,&quot;cms.month:march&quot;,&quot;cms.month:april&quot;,&quot;cms.month:may&quot;,&quot;cms.month:june&quot;,&quot;cms.month:july&quot;,&quot;cms.month:august&quot;,&quot;cms.month:september&quot;,&quot;cms.month:october&quot;,&quot;cms.mo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ReferralBody {
+            get {
+                return ResourceManager.GetString("ReferralBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;ct_rpc_action&quot;:&quot;questionnaire_submit&quot;,&quot;answers&quot;:{&quot;1&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null}},&quot;questionnaire_id&quot;:&quot;76f334c6-4afd-4c7d-8ac0-cc0c3adcf60e&quot;,&quot;questionnaire_type&quot;:&quot;survey&quot;}.
+        /// </summary>
+        internal static string SuperheroQnaBody {
+            get {
+                return ResourceManager.GetString("SuperheroQnaBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {&quot;ct_rpc_action&quot;:&quot;questionnaire_submit&quot;,&quot;answers&quot;:{&quot;1&quot;:{&quot;selected_answers&quot;:[&quot;1&quot;],&quot;response_text&quot;:null}},&quot;questionnaire_id&quot;:&quot;9ca0f492-6b91-4bd4-8d2a-8758eaba1c61&quot;,&quot;questionnaire_type&quot;:&quot;survey&quot;}.
+        /// </summary>
+        internal static string VillainQnaBody {
+            get {
+                return ResourceManager.GetString("VillainQnaBody", resourceCulture);
             }
         }
     }
