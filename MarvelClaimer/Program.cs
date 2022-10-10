@@ -1,33 +1,45 @@
-﻿using MarvelClaimer;
-using OpenQA.Selenium.Chrome;
-using System.Diagnostics;
+﻿global using Serilog;
+using MarvelClaimer;
 
-foreach (var chrome in Process.GetProcessesByName("chrome"))
-    chrome.Kill();
+Log.Logger =
+    new LoggerConfiguration()
+    .MinimumLevel.Verbose()
+    .WriteTo.Console()
+    .CreateLogger();
 
-var chromeProfileDir = Path.Join(
-    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-    "Google",
-    "Chrome",
-    "User Data");
-
-ChromeOptions options = new ChromeOptions();
-options.AddArgument($"--user-data-dir={chromeProfileDir}\\");
-options.AddArgument("disable-infobars");
-options.AddArgument("--start-maximized");
-
-using var driver = new ChromeDriver(@"C:\Users\zkana\Downloads\chromedriver_win32", options);
+Dictionary<int, string> IdToCode = new()
+{
+    { 10913, "LM18" },
+    { 10912, "MW37" },
+    { 10917, "Dora Milaje" },
+    { 10918, "new orleans" },
+    { 10916, "blood transfusion" },
+    { 10914, "JJ15" },
+    { 10910, "EJ98Q" },
+    { 10920, "Miracleman" },
+    { 10919, "Kelly Thompson" },
+    { 10930, "TOTEM" },
+    { 10915, "EL61" }
+};
 
 string cookie = "usprivacy=1YNY; country=us; device_75123983=8b48d010-faea-4b67-bccf-8b5b5a7287b1; device_3809a71c=0bbb927c-f1b2-42ca-994f-7cf0d0c82b7f; _gcl_au=1.1.1729499553.1665433723; mboxEdgeCluster=34; _clck=1g3v0ve|1|f5l|0; s_ensCDS=0; s_ensRegion=ccpa; _dcf=1; at_check=true; s_plt=2.05; s_pltp=undefined; AMCVS_D83AE33C56937B7B7F000101%40AdobeOrg=1; AMCV_D83AE33C56937B7B7F000101%40AdobeOrg=-2121179033%7CMCIDTS%7C19276%7CMCMID%7C75336372569745636701668968959145976654%7CMCOPTOUT-1665441141s%7CNONE%7CvVersion%7C5.3.0%7CMCAAMLH-1666038741%7C7%7CMCAAMB-1666038741%7Cj8Odv6LonN4r3an7LhD3WZrU1bUpAkFkkiY1ncBR96t2PTI%7CMCSYNCSOP%7C411-19283; s_vnc365=1696969942047%26vn%3D1; s_ivc=true; s_cc=true; _fbp=fb.1.1665433950424.1884917753; country=us; __gads=ID=9f6e710bcd1effe1:T=1665433953:S=ALNI_MY9Edoa1mD-3y41Ou_VOc9PW84pSA; __gpi=UID=0000087ed55164f8:T=1665433953:RT=1665433953:S=ALNI_Majfvaa1JglGJx2l_JjxnlHFVRjzA; check=true; MARVEL-MARVEL.COM.WEB-PROD.api=9pVwZu19tZ91uXnNq4vlZr+EAl2L7yCzTUl5HRAqpinSbLR6ZK7W6nlIwX4zF00b0+bS/B1MA8gQh1hFfYnkoPA9NuKrWd99+20=; device_18f582bd=7221c24e-c291-4960-be46-0664c49bb3c2; SWID={3FBC8D2C-FAE3-4AEB-A7C4-46A95D8BDD9C}; MARVEL-MARVEL.COM.WEB-PROD.ts=2022-10-10T21:03:41.763Z; MARVEL-MARVEL.COM.WEB-PROD-ac=XUS; marvel_autologin=%7B%22username%22%3A+%22dresdenmichaels%40gmail.com%22%2C+%22loginDate%22%3A+%222022-10-10+20%3A33%3A44%22%2C+%22signature%22%3A+%221d62df99ee16ac9b187e396b3c9051640d91962f0751fced7f6bef080e185f766ee4c8ed855b4ecfdc4d61951bb112319554d624025dcc27be69bb722ebb082d%22%7D; PHPSESSID=6q0s5ksaqa7mu6fb08abq7hl9g; prod_prod_ss_ctuc_2_66=9827405324def8535f1b4382ec5a1ee8dcf15b2fdaf76cea24afbd8bb2fa7a7ce3f43f2708b9fd1404e539bb4fca9a4ef59fd6b245bcd07dbc96f58420a6667cacb82c0709551a2d974cca24effd69c023f25316074cb010a496f131975e99657eb678946773c80b489a636d9712801eaf4adb90c8e6e2c703db7d4033e1478016beed2f941f71eaf6c8e13008bc3c253bacfecb054d78774505b8e65f3295cc623c513dc7b312033c0e018b449d36d9-31ad42183873d97b3682655c93dc6d5c5babe95f; prod_prod_ctuc_2_66=9827405324def8535f1b4382ec5a1ee8dcf15b2fdaf76cea24afbd8bb2fa7a7ce3f43f2708b9fd1404e539bb4fca9a4ef59fd6b245bcd07dbc96f58420a6667cacb82c0709551a2d974cca24effd69c023f25316074cb010a496f131975e99657eb678946773c80b489a636d9712801eaf4adb90c8e6e2c703db7d4033e1478016beed2f941f71eaf6c8e13008bc3c253bacfecb054d78774505b8e65f3295cc623c513dc7b312033c0e018b449d36d9-31ad42183873d97b3682655c93dc6d5c5babe95f; prod_prod_ss_ctut_2_66=395413c0f21f59dc6ebaefaf20f02037a599752eb7360eeea22e000b1fdc923da08c4eef7b96bfa4-d92cb7918f8b5da2fa31eaed6d0f1da89a6845cf; prod_prod_ctut_2_66=395413c0f21f59dc6ebaefaf20f02037a599752eb7360eeea22e000b1fdc923da08c4eef7b96bfa4-d92cb7918f8b5da2fa31eaed6d0f1da89a6845cf; MARVEL-MARVEL.COM.WEB-PROD.token=5=eyJhY2Nlc3NfdG9rZW4iOiI2MDgzMGFhZjJkZDQ0ZmU3ODhlODFjMzFhZjExNmJlMSIsInJlZnJlc2hfdG9rZW4iOiIzYTJkYWNiMjMzM2U0ODQ4YTY1Nzc1MzE5NmNmNWViYyIsInN3aWQiOiJ7M0ZCQzhEMkMtRkFFMy00QUVCLUE3QzQtNDZBOTVEOEJERDlDfSIsInR0bCI6ODY0MDAsInJlZnJlc2hfdHRsIjoxNTU1MjAwMCwiaGlnaF90cnVzdF9leHBpcmVzX2luIjoxNzk5LCJpbml0aWFsX2dyYW50X2luX2NoYWluX3RpbWUiOjE2NjU0MzQwMjAyMTksImlhdCI6MTY2NTQzNDAyMDAwMCwiZXhwIjoxNjY1NTIwNDIwMDAwLCJyZWZyZXNoX2V4cCI6MTY4MDk4NjAyMDAwMCwiaGlnaF90cnVzdF9leHAiOjE2NjU0MzU4MTkwMDAsInNzbyI6bnVsbCwiYXV0aGVudGljYXRvciI6ImRpc25leWlkIiwibG9naW5WYWx1ZSI6bnVsbCwiY2xpY2tiYWNrVHlwZSI6bnVsbCwic2Vzc2lvblRyYW5zZmVyS2V5IjoiYXhKQVZKWlpBNzJGVUVPdlNVRnV4aVo5NnpHY3M1Zk5TM0lRWmVFQW5JdHo5djFUYW9HSWJHcHp2WVk2c1h1dnRTMGppajhjaElXb096NjZlZzdjRTJvZXZnaFNGWW9pQUt5U3VVd2svODNranA1ZS8wMD0iLCJjcmVhdGVkIjoiMjAyMi0xMC0xMFQyMDozMzo0Mi43NjNaIiwibGFzdENoZWNrZWQiOiIyMDIyLTEwLTEwVDIwOjMzOjQyLjc2M1oiLCJleHBpcmVzIjoiMjAyMi0xMC0xMVQyMDozMzo0MC4wMDBaIiwicmVmcmVzaF9leHBpcmVzIjoiMjAyMy0wNC0wOFQyMDozMzo0MC4wMDBaIiwiaXNFeHBpcmVkIjpmYWxzZX0=|eyJraWQiOiJxUEhmditOL0tONE1zYnVwSE1PWWxBc0pLcWVaS1U2Mi9DZjNpSm1uOEJ6dzlwSW5xbTVzUnc9PSIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL2F1dGhvcml6YXRpb24uZ28uY29tIiwic3ViIjoiezNGQkM4RDJDLUZBRTMtNEFFQi1BN0M0LTQ2QTk1RDhCREQ5Q30iLCJhdWQiOiJNQVJWRUwtTUFSVkVMLkNPTS5XRUItUFJPRCIsImV4cCI6MTY2NTUyMDQyMCwiaWF0IjoxNjY1NDM0MDIwLCJqdGkiOiJBU2hiSG5zNnAtZHBjajg2NDBLR1N3IiwibmJmIjoxNjY1NDMzOTYwLCJhX3R5cCI6Ik9ORUlEX1RSVVNURUQiLCJhX2NhdCI6IkdVRVNUIiwiYXRyIjoiZGlzbmV5aWQiLCJzY29wZXMiOlsiQVVUSFpfR1VFU1RfU0VDVVJFRF9TRVNTSU9OIl0sImNfdGlkIjoiMTgxOSIsImlnaWMiOjE2NjU0MzQwMjAyMTksImh0YXYiOjIsImh0ZCI6MTgwMCwicnR0bCI6MTU1NTIwMDB9.Zoc9VwhY5H6-xlNYsz59A02RViAo3BDwD0YQ26oRU24krgql_oF12lubjBlFY5mMaGmth45WZKGXFqV4TF46sK2hEQUMSmgo06lEL48wAlUyBRc-hISHGQd809J37zhsPr5CbWTXSdj1_5KEVgn0YDO55Qr25Fx9dJchGjnniYSkSnB_xL4WlS8bZ9r_j48MtQRriYLMXIriJiFTF1s0Mva3NJP1eBDT9H-idHc1_VH9Z_rZNL5Xl3CYpUMw3HFLDt1uheBjWbLAfDxqjHkPg21rTexU6n39IRLNje-JcdnKWIXzOK3zu5_X9tA8J_tgPOFq1e6AX0yFLEiim9GIsw; MARVEL-MARVEL.COM.WEB-PROD.idn=007ab4c0a2; _uetsid=22a63e2048da11eda4b225a42c286003; _uetvid=22a65cd048da11edaa91dbcf70a4ce50; mbox=session#fa13b9efe93d4bc784f800ba89ddb807#1665435932|PC#fa13b9efe93d4bc784f800ba89ddb807.34_0#1728678524; _clsk=14f8o06|1665434074189|5|1|b.clarity.ms/collect; s_nr30=1665434074983-New; s_ips=969; s_tp=7947; s_ppv=marvel%2520insider%2520%257C%2520marvel%2C12%2C12%2C969%2C1%2C8; s_sq=%5B%5BB%5D%5D; OptanonConsent=isIABGlobal=false&datestamp=Mon+Oct+10+2022+16%3A34%3A35+GMT-0400+(Eastern+Daylight+Time)&version=6.20.0&hosts=&consentId=9d06389f-a7d4-4b35-ba78-f510ff5c3b4e&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A1%2CC0002%3A1%2CSPD_BG%3A1%2CC0004%3A1&AwaitingReconsent=false";
+
 var client = new MarvelInsiderClient(cookie);
 
-foreach (var activity in client.GetActivites())
+//foreach (var activity in client.GetActivites())
+//{
+//    if (string.IsNullOrEmpty(activity.link_href))
+//        continue;
+
+//    if (activity.link_href.StartsWith('/'))
+//        continue;
+
+//    Chrome.OpenUrl(activity.link_href);
+//}
+
+client.FinishProfile();
+
+Parallel.ForEach(IdToCode, (kvp, _) =>
 {
-    if (string.IsNullOrEmpty(activity.link_href))
-        continue;
-
-    if (activity.link_href.StartsWith('/'))
-        continue;
-
-    driver.Navigate().GoToUrl(activity.link_href);
-}
+    client.RedeemCode(kvp.Key, kvp.Value);
+});

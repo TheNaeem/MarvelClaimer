@@ -124,4 +124,28 @@ public class MarvelInsiderClient : RestClient
 
         return activities.Deserialize<List<Activity>>() ?? Enumerable.Empty<Activity>();
     }
+
+    public void RedeemCode(int id, string answer)
+    {
+        var req = new RestRequest($"code-redemption-campaign/redeem?cid={id}", Method.Post);
+
+        req.AddJsonBody(new
+        {
+            code = answer
+        });
+
+        Execute(req);
+
+        Log.Information("Redeemed {id} with answer {answer}", id, answer);
+    }
+
+    public void FinishProfile()
+    {
+        var req = new RestRequest("questionnaire/rpc", Method.Post);
+        req.AddJsonBody(Properties.Resources.ProfileQnaBody);
+
+        Execute(req);
+
+        Log.Information("Claimed 25k points.");
+    }
 }
