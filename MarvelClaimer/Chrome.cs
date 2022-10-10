@@ -30,4 +30,10 @@ public static class Chrome
     {
         _driver.Navigate().GoToUrl(url);
     }
+
+    public static void Stop()
+    {
+        _driver.Close();
+        _driver.Dispose();
+    }
 }

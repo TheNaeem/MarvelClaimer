@@ -26,28 +26,24 @@ string cookie = " country=us; device_75123983=8b48d010-faea-4b67-bccf-8b5b5a7287
 
 var client = new MarvelInsiderClient(cookie);
 
-//foreach (var activity in client.GetActivites())
-//{
-//    if (string.IsNullOrEmpty(activity.link_href))
-//        continue;
+client.DoActivities(5638, MarvelClaimer.Properties.Resources.GamesActivitiesBody);
+client.DoActivities(1374, MarvelClaimer.Properties.Resources.ComicsActivitiesBody);
+client.DoActivities(1438, MarvelClaimer.Properties.Resources.LatestActivitiesBody);
 
-//    if (activity.link_href.StartsWith('/'))
-//        continue;
+client.FillQuestionare(MarvelClaimer.Properties.Resources.ProfileQnaBody);
+client.FillQuestionare(MarvelClaimer.Properties.Resources.NftQnaBody);
+client.FillQuestionare(MarvelClaimer.Properties.Resources.SuperheroQnaBody);
+client.FillQuestionare(MarvelClaimer.Properties.Resources.VillainQnaBody);
+client.FillQuestionare(MarvelClaimer.Properties.Resources.MonsterQnaBody);
 
-//    Chrome.OpenUrl(activity.link_href);
-//}
+Parallel.ForEach(IdToCode, (kvp, _) =>
+{
+    client.RedeemCode(kvp.Key, kvp.Value);
+});
 
-//client.FillQuestionare(MarvelClaimer.Properties.Resources.ProfileQnaBody);
-//client.FillQuestionare(MarvelClaimer.Properties.Resources.NftQnaBody);
-//client.FillQuestionare(MarvelClaimer.Properties.Resources.SuperheroQnaBody);
-//client.FillQuestionare(MarvelClaimer.Properties.Resources.VillainQnaBody);
-
-//Parallel.ForEach(IdToCode, (kvp, _) =>
-//{
-//    client.RedeemCode(kvp.Key, kvp.Value);
-//});
-
-//client.VisitTwitter();
-//client.VisitFacebook();
+client.VisitTwitter();
+client.VisitFacebook();
 
 client.DoReferrals();
+
+Chrome.Stop();
