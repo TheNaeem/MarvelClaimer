@@ -7,10 +7,15 @@ public static class Chrome
 {
     private static ChromeDriver _driver;
 
-    static Chrome()
+    private static void CloseAllInstances()
     {
         foreach (var chrome in Process.GetProcessesByName("chrome"))
             chrome.Kill();
+    }
+
+    static Chrome()
+    {
+        CloseAllInstances();
 
         var chromeProfileDir = Path.Join(
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
@@ -23,7 +28,7 @@ public static class Chrome
         options.AddArgument("disable-infobars");
         options.AddArgument("--start-maximized");
 
-        _driver = new(@"C:\Users\zkana\Downloads\chromedriver_win32", options);
+        _driver = new(Environment.CurrentDirectory, options);
     }
 
     public static void OpenUrl(string url)
@@ -34,6 +39,6 @@ public static class Chrome
     public static void Stop()
     {
         _driver.Close();
-        _driver.Dispose();
+        _driver.Dispose();CloseAllInstances();
     }
 }
