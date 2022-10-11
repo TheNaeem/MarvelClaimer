@@ -29,7 +29,7 @@ try
 
     if (!File.Exists(cookieFile))
     {
-        File.WriteAllText(string.Empty, cookieFile);
+        File.WriteAllText(cookieFile, string.Empty);
         Log.Error("Please put your cookies in the cookie.txt file.");
         Console.ReadKey();
         return;
@@ -63,4 +63,8 @@ try
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
+}
+finally
+{
+    Console.ReadKey();
 }
