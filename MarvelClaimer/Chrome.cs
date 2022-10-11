@@ -39,6 +39,7 @@ public static class Chrome
     public static void Stop()
     {
         _driver.Close();
-        _driver.Dispose();CloseAllInstances();
+        _driver.Dispose();
+        CloseAllInstances();
     }
 }
