@@ -11,7 +11,7 @@ public class MarvelInsiderClient : RestClient
         Authenticator = new MarvelAuthenticator(cookies);
     }
 
-    public void DoActivities(int id, string body)
+    public async void DoActivities(int id, string body)
     {
         var req = new RestRequest($"request?widgetId={id}", Method.Post);
 
@@ -46,7 +46,7 @@ public class MarvelInsiderClient : RestClient
 
             Log.Information("Opening link {Link}", activity.link_href);
 
-            Chrome.OpenUrl(activity.link_href);
+            await Chrome.OpenUrl(activity.link_href);
         }
     }
 

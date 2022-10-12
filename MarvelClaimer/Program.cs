@@ -25,17 +25,17 @@ try
         { 10915, "EL61" }
     };
 
-    const string cookieFile = "cookie.txt";
+    /*const string cookieFile = "cookie.txt";
 
-    if (!File.Exists(cookieFile))
-    {
-        File.WriteAllText(cookieFile, string.Empty);
-        Log.Error("Please put your cookies in the cookie.txt file.");
-        Console.ReadKey();
-        return;
-    }
+     if (!File.Exists(cookieFile))
+     {
+         File.WriteAllText(cookieFile, string.Empty);
+         Log.Error("Please put your cookies in the cookie.txt file.");
+         Console.ReadKey();
+         return;
+     }*/
 
-    var client = new MarvelInsiderClient(File.ReadAllText(cookieFile));
+    var client = new MarvelInsiderClient(Chrome.GetCookie("https://www.marvel.com/insider/home"));
 
     client.DoActivities(5638, MarvelClaimer.Properties.Resources.GamesActivitiesBody);
     client.DoActivities(1374, MarvelClaimer.Properties.Resources.ComicsActivitiesBody);
