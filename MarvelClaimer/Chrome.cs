@@ -45,7 +45,7 @@ public static class Chrome
         }
     }
 
-    public static async Task OpenUrl(string url)
+    public static void OpenUrl(string url)
     {
         _driver.Navigate().GoToUrl(url);
 
@@ -53,16 +53,16 @@ public static class Chrome
         while (readyState != "complete")
         {
             readyState = (string)_driver.ExecuteScript("return document.readyState");
-            await Task.Delay(10);
+            Thread.Sleep(10);
         }
-
+        
         if (IsElementPresent(By.Id("vjs_video_3")))
         {
             Log.Information("Found a video clicking it!");
 
             _driver.FindElement(By.ClassName("vjs-big-play-button")).Click();
 
-            await Task.Delay(3000);
+            Thread.Sleep(3000);
         }
     }
 

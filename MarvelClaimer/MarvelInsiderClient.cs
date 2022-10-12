@@ -46,7 +46,7 @@ public class MarvelInsiderClient : RestClient
 
             Log.Information("Opening link {Link}", activity.link_href);
 
-            await Chrome.OpenUrl(activity.link_href);
+            Chrome.OpenUrl(activity.link_href);
         }
     }
 
