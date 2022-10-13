@@ -62,6 +62,10 @@ public static class Chrome
 
             _driver.FindElement(By.ClassName("vjs-big-play-button")).Click();
 
+            //Thread.Sleep(3000);
+
+            //_driver.FindElement(By.ClassName("vjs-mute-control")).Click();
+
             Thread.Sleep(3000);
         }
     }

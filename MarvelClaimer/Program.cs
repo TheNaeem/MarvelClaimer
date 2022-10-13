@@ -40,6 +40,11 @@ try
     client.DoActivities(5638, MarvelClaimer.Properties.Resources.GamesActivitiesBody);
     client.DoActivities(1374, MarvelClaimer.Properties.Resources.ComicsActivitiesBody);
     client.DoActivities(1438, MarvelClaimer.Properties.Resources.LatestActivitiesBody);
+    client.DoActivities(1432, MarvelClaimer.Properties.Resources.WakandaBody);
+    client.DoActivities(1432, MarvelClaimer.Properties.Resources.AnnaAmeyamaBody);
+    client.DoActivities(1432, MarvelClaimer.Properties.Resources.SheHulkEp9);
+    client.DoActivities(1438, MarvelClaimer.Properties.Resources.WerewolfByNight);
+    client.DoActivities(1436, MarvelClaimer.Properties.Resources.Snapchat);
 
     client.FillQuestionare(MarvelClaimer.Properties.Resources.ProfileQnaBody);
     client.FillQuestionare(MarvelClaimer.Properties.Resources.NftQnaBody);
