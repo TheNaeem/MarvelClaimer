@@ -125,6 +125,11 @@ public static class Chrome
         return element;
     }
 
+    public static void Refresh()
+    {
+        _driver.Navigate().Refresh();
+    }
+
     public static void SwitchToFrame(string frame)
     {
         _driver.SwitchTo().Frame(frame);
