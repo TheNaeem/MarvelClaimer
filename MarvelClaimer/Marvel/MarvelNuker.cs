@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using OpenQA.Selenium;
 using Spectre.Console;
+using OpenQA.Selenium.Support.UI;
 
 namespace MarvelClaimer.Marvel;
 
@@ -46,6 +47,13 @@ public class MarvelNuker
 
         Chrome.SwitchToFrame("oneid-iframe");
         Chrome.WaitForElement(By.Id("BtnCreateAccount"))?.Click();
+
+        Chrome.WaitForElement(By.Id("UpdateLegalCountry"))?.FindElement(By.TagName("a"))?.Click();
+
+        SelectElement country = new(Chrome.WaitForElement(By.Id("InputSelect")));
+        country.SelectByValue("US");
+
+        Chrome.WaitForElement(By.Id("BtnSubmit"))?.Click();
 
         Chrome.WaitForElement(By.Id("InputFirstName"))?.SendKeys("Parse");
         Chrome.WaitForElement(By.Id("InputLastName"))?.SendKeys("Jason");

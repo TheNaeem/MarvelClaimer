@@ -10,8 +10,9 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta2" />
     <PackageReference Include="RestSharp" Version="108.0.3-alpha.0.5" />
+    <PackageReference Include="Selenium.Support" Version="4.5.1" />
     <PackageReference Include="Selenium.WebDriver" Version="4.5.1" />
-    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.31.0.1" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.32.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.1-dev-00896" />
     <PackageReference Include="Spectre.Console" Version="0.45.1-preview.0.27" />
   </ItemGroup>
