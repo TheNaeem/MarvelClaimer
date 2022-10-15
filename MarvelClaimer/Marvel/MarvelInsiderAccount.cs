@@ -11,7 +11,7 @@ public class MarvelInsiderAccount : IDisposable
     public string Password { get; set; }
     private MarvelInsiderClient _client;
 
-    public MarvelInsiderAccount(string password, string email)
+    public MarvelInsiderAccount(string email, string password)
     {
         _client = new(Chrome.GetCookie("https://www.marvel.com/insider/home"));
         Email = email;
