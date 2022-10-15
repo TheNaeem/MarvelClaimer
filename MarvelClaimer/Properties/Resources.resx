@@ -121,16 +121,157 @@
     <value>{"page_data":{"text":["text.activity widget unlock","text.activity widget tier unlock","text.bonus","text.activity widget available","button.go","cms.month:january","cms.month:february","cms.month:march","cms.month:april","cms.month:may","cms.month:june","cms.month:july","cms.month:august","cms.month:september","cms.month:october","cms.month:november","cms.month:december","text.points display","text.point display","text.days","text.hours","text.minutes","text.seconds","error.unknown","button.submit"]},"model_data":{"user":{"me":{"properties":["total_points","state_id"],"query":{"type":"me"}}},"client":{"current":{"properties":["fan_levels","states_not_allowing_purchase"],"query":{"type":"current"}}},"activity":{"activities":{"properties":["additional_points","category_name","description","freq_cap","has_bonus","id","show_activity_point_text","link_href","main_image_url","name","num_points","prereq_activity_id","prereq_activity_link_href","prereq_activity_name","prereq_activity_title","prereq_user_activity_status","show_detail","title","user_activity_status","min_tier_id","locked_by_tier"],"query":{"type":"activities_by_name","args":{"names":["digitalcomics: namor20221","latest:  article - movieblackpantherposters","comics: article - testkitchenavengers","latest:  video - connycc22bestof"]}}}}}}</value>
   </data>
   <data name="ComicsActivitiesBody" xml:space="preserve">
-    <value>{"page_data":{"text":["text.activity widget unlock","text.activity widget tier unlock","text.bonus","text.activity widget available","button.go","cms.month:january","cms.month:february","cms.month:march","cms.month:april","cms.month:may","cms.month:june","cms.month:july","cms.month:august","cms.month:september","cms.month:october","cms.month:november","cms.month:december","text.points display","text.point display","text.days","text.hours","text.minutes","text.seconds","error.unknown","button.submit"]},"model_data":{"user":{"me":{"properties":["total_points","state_id"],"query":{"type":"me"}}},"client":{"current":{"properties":["fan_levels","states_not_allowing_purchase"],"query":{"type":"current"}}},"activity":{"activities":{"properties":["additional_points","category_name","description","freq_cap","has_bonus","id","show_activity_point_text","link_href","main_image_url","name","num_points","prereq_activity_id","prereq_activity_link_href","prereq_activity_name","prereq_activity_title","prereq_user_activity_status","show_detail","title","user_activity_status","min_tier_id","locked_by_tier"],"query":{"type":"activities_by_name","args":{"names":["subscribe to marvel unlimited","comics: article - darkwebtrailer","comics: article - shehulkdaredevil","comics: article - halloweenstories2022","sale: halloween2022","comics: article - muoctober","the end of the spider-verse is here!  buy spider-man (2022) #1 today!","comics: article - voicesmilesinfinity","digitalcomics: axeavengers20221","comics: video - comunidadestrailer","comics: discover - alternateff","comics: article - fortnite","comics: article - comicsprospiderman","comics: article - captainamericabestmoments","digitalcomics: xterminators20221","comics: discover - insiderreadinglistsept22","survey answered 6b5a7cf0-c825-4b2a-bc85-161ded4db9a0","quiz answered d3c4411f-0a9d-479a-8d47-a082f650e793","comics: article - manthing","digitalcomics: midnightsuns20221","comics: article - infinity1year","comics: discover - destinyofx","comics visit the on-sale release calendar","enter your digital comics redeem code","digital comics shop minimum purchase","digital comics shop 1st purchase"]}}}}}}</value>
+    <value>{"page_data":{"text":["text.activity widget unlock","text.activity widget tier unlock","text.bonus","text.activity widget available","button.go","cms.month:january","cms.month:february","cms.month:march","cms.month:april","cms.month:may","cms.month:june","cms.month:july","cms.month:august","cms.month:september","cms.month:october","cms.month:november","cms.month:december","text.points display","text.point display","text.days","text.hours","text.minutes","text.seconds","error.unknown","button.submit"]},"model_data":{"user":{"me":{"properties":["total_points","state_id"],"query":{"type":"me"}}},"client":{"current":{"properties":["fan_levels","states_not_allowing_purchase"],"query":{"type":"current"}}},"activity":{"activities":{"properties":["additional_points","category_name","description","freq_cap","has_bonus","id","show_activity_point_text","link_href","main_image_url","name","num_points","prereq_activity_id","prereq_activity_link_href","prereq_activity_name","prereq_activity_title","prereq_user_activity_status","show_detail","title","user_activity_status","min_tier_id","locked_by_tier"],"query":{"type":"activities_by_name","args":{"names":["subscribe to marvel unlimited","comics: discover - roadtojudgmentday","comics: article - disney100yearsvariantcovers","comics: article - bloodstonefamily","digitalcomics: namor20221","comics: article - testkitchenavengers","comics: article - darkwebtrailer","comics: article - shehulkdaredevil","comics: article - halloweenstories2022","sale: halloween2022","comics: article - muoctober","the end of the spider-verse is here!  buy spider-man (2022) #1 today!","comics: article - voicesmilesinfinity","digitalcomics: axeavengers20221","comics: video - comunidadestrailer","comics: discover - alternateff","comics: article - fortnite","comics: article - comicsprospiderman","comics: article - captainamericabestmoments","digitalcomics: xterminators20221","comics: discover - insiderreadinglistsept22","survey answered 6b5a7cf0-c825-4b2a-bc85-161ded4db9a0","quiz answered d3c4411f-0a9d-479a-8d47-a082f650e793","comics visit the on-sale release calendar","enter your digital comics redeem code","digital comics shop minimum purchase","digital comics shop 1st purchase"]}}}}}}</value>
   </data>
   <data name="GamesActivitiesBody" xml:space="preserve">
-    <value>{"page_data":{"text":["text.activity widget unlock","text.activity widget tier unlock","text.bonus","text.activity widget available","button.go","cms.month:january","cms.month:february","cms.month:march","cms.month:april","cms.month:may","cms.month:june","cms.month:july","cms.month:august","cms.month:september","cms.month:october","cms.month:november","cms.month:december","text.points display","text.point display","text.days","text.hours","text.minutes","text.seconds","error.unknown","button.submit"]},"model_data":{"user":{"me":{"properties":["total_points","state_id"],"query":{"type":"me"}}},"client":{"current":{"properties":["fan_levels","states_not_allowing_purchase"],"query":{"type":"current"}}},"activity":{"activities":{"properties":["additional_points","category_name","description","freq_cap","has_bonus","id","show_activity_point_text","link_href","main_image_url","name","num_points","prereq_activity_id","prereq_activity_link_href","prereq_activity_name","prereq_activity_title","prereq_user_activity_status","show_detail","title","user_activity_status","min_tier_id","locked_by_tier"],"query":{"type":"activities_by_name","args":{"names":["games: article - mpqdoop","survey answered f7ffe157-a013-44fc-be4b-5b05e6df349b","survey answered 2e01fd24-0769-4670-abe5-e88b56e12db5","survey answered f1087d91-f9dd-4715-8de7-0af98a524d4c","survey answered f778b79d-59d2-4123-bc24-4ee2b0a13a98","games: video - mmrpgtrailer","survey answered e7de12a2-545b-4e0a-87fa-b60483d5cab8","games: article - cocv36.3","games: article - mpq9thanniversary","october marvel contest of champions champion reveal trailer code","games: article - msmmmpc","games: article - mpqemmafrost","games: article - ironmandevelopment","games: video - midnightsunsd23"]}}}}}}</value>
+    <value>{"page_data":{"text":["text.activity widget unlock","text.activity widget tier unlock","text.bonus","text.activity widget available","button.go","cms.month:january","cms.month:february","cms.month:march","cms.month:april","cms.month:may","cms.month:june","cms.month:july","cms.month:august","cms.month:september","cms.month:october","cms.month:november","cms.month:december","text.points display","text.point display","text.days","text.hours","text.minutes","text.seconds","error.unknown","button.submit"]},"model_data":{"user":{"me":{"properties":["total_points","state_id"],"query":{"type":"me"}}},"client":{"current":{"properties":["fan_levels","states_not_allowing_purchase"],"query":{"type":"current"}}},"activity":{"activities":{"properties":["additional_points","category_name","description","freq_cap","has_bonus","id","show_activity_point_text","link_href","main_image_url","name","num_points","prereq_activity_id","prereq_activity_link_href","prereq_activity_name","prereq_activity_title","prereq_user_activity_status","show_detail","title","user_activity_status","min_tier_id","locked_by_tier"],"query":{"type":"activities_by_name","args":{"names":["games: video - marvelsnaptrailer","games: article - msmmmpcnovember","games: article - ironmanvr","games: article - mpqdoop","survey answered f7ffe157-a013-44fc-be4b-5b05e6df349b","survey answered 2e01fd24-0769-4670-abe5-e88b56e12db5","survey answered f1087d91-f9dd-4715-8de7-0af98a524d4c","survey answered f778b79d-59d2-4123-bc24-4ee2b0a13a98","games: video - mmrpgtrailer","survey answered e7de12a2-545b-4e0a-87fa-b60483d5cab8","games: article - cocv36.3","games: article - mpq9thanniversary","october marvel contest of champions champion reveal trailer code","games: article - msmmmpc","games: article - mpqemmafrost","games: article - ironmandevelopment"]}}}}}}</value>
   </data>
   <data name="JudgementQnaBody" xml:space="preserve">
     <value>{"ct_rpc_action":"questionnaire_submit","answers":{"1":{"selected_answers":["1"],"response_text":null},"2":{"selected_answers":["3"],"response_text":null},"3":{"selected_answers":["3"],"response_text":null},"4":{"selected_answers":["3"],"response_text":null},"5":{"selected_answers":["3"],"response_text":null},"6":{"selected_answers":["2"],"response_text":null}},"questionnaire_id":"d3c4411f-0a9d-479a-8d47-a082f650e793","questionnaire_type":"quiz"}</value>
   </data>
   <data name="LatestActivitiesBody" xml:space="preserve">
-    <value>{"page_data":{"text":["text.activity widget unlock","text.activity widget tier unlock","text.bonus","text.activity widget available","button.go","cms.month:january","cms.month:february","cms.month:march","cms.month:april","cms.month:may","cms.month:june","cms.month:july","cms.month:august","cms.month:september","cms.month:october","cms.month:november","cms.month:december","text.points display","text.point display","text.days","text.hours","text.minutes","text.seconds","error.unknown","button.submit"]},"model_data":{"user":{"me":{"properties":["total_points","state_id"],"query":{"type":"me"}}},"client":{"current":{"properties":["fan_levels","states_not_allowing_purchase"],"query":{"type":"current"}}},"activity":{"activities":{"properties":["additional_points","category_name","description","freq_cap","has_bonus","id","show_activity_point_text","link_href","main_image_url","name","num_points","prereq_activity_id","prereq_activity_link_href","prereq_activity_name","prereq_activity_title","prereq_user_activity_status","show_detail","title","user_activity_status","min_tier_id","locked_by_tier"],"query":{"type":"activities_by_name","args":{"names":["latest:  video - connycc22day4recap","latest:  video - connycc22bestof","women of marvel panel 2022","nycc 2022 livestream day 4","twitter trivia 2022 day 4","latest:  article - connycc22day3recap","nycc 2022 livestream day 3","twitter trivia 2022 day 3","latest: article - merchshehulkmmhep8","latest:  article - connycc22day2recap","latest:  article - tvwerewolfbynightdisney+","nycc 2022 livestream day 2","latest:  article - generalmilb","twitter trivia 2022 day 2","latest:  article - connycc22day1recap","nycc 2022 livestream day 1","instagram picture scramble 2022","twitter trivia 2022 day 1","latest: article - tvshehulkep8recap","latest:  video - generalbeyondamazingexhibition","latest:  article - merchchroniclemarvelmazes","latest:  article - merchoracledeck","latest:  article - generalnyplspidermancard","latest:  article - merchoctober22","latest:  video - generalmarvelminutenycc22","latest:  article - movieblackpanthertrailer","survey answered d73684fd-5b79-4a92-bfe6-3c154301e1b6","latest:  article - tvwerewolfbynightfeaturette","latest: article - merchshehulkmmhep7","latest:  article - moviearmorwarstheatricalrelease","latest:  article - merchfallmmh","latest: article - tvshehulkep7recap","latest:  article - merchtargetblackpanther","latest:  article - moviedeadpool3","latest:  article - mercharizonasuperlxr","latest:  article - merchpenguincaptainamerica","latest: article - merchshehulkmmhep6","latest:  article - parksachulk","latest: article - tvshehulkep6recap","latest:  article - merchtoyawards","latest:  article - merchpenguinblackpanther","survey answered ea6dd091-4d42-4981-9d32-6c4eeb48e164","latest: article - merchshehulkmmhep5","latest: article - tvshehulkep5recap","latest:  article - merchinfinityrelics","latest:  video - cond23marvelminute","latest:  article - podcastwastelandersdoom","latest:  video - cond23stars","latest:  video - parksacd23","latest:  video - cond23studiosannouncements","latest:  article - tvmoongirlfebruary","latest: podcast - wastelandersdoom","latest: podcast - marvelsvoices","latest: podcast - marvelspulllist","latest: podcast - thisweekinmarvel","visit the marvel shop"]}}}}}}</value>
+    <value>{
+  "page_data": {
+    "text": [
+      "text.activity widget unlock",
+      "text.activity widget tier unlock",
+      "text.bonus",
+      "text.activity widget available",
+      "button.go",
+      "cms.month:january",
+      "cms.month:february",
+      "cms.month:march",
+      "cms.month:april",
+      "cms.month:may",
+      "cms.month:june",
+      "cms.month:july",
+      "cms.month:august",
+      "cms.month:september",
+      "cms.month:october",
+      "cms.month:november",
+      "cms.month:december",
+      "text.points display",
+      "text.point display",
+      "text.days",
+      "text.hours",
+      "text.minutes",
+      "text.seconds",
+      "error.unknown",
+      "button.submit"
+    ]
+  },
+  "model_data": {
+    "user": {
+      "me": {
+        "properties": [
+          "total_points",
+          "state_id"
+        ],
+        "query": {
+          "type": "me"
+        }
+      }
+    },
+    "client": {
+      "current": {
+        "properties": [
+          "fan_levels",
+          "states_not_allowing_purchase"
+        ],
+        "query": {
+          "type": "current"
+        }
+      }
+    },
+    "activity": {
+      "activities": {
+        "properties": [
+          "additional_points",
+          "category_name",
+          "description",
+          "freq_cap",
+          "has_bonus",
+          "id",
+          "show_activity_point_text",
+          "link_href",
+          "main_image_url",
+          "name",
+          "num_points",
+          "prereq_activity_id",
+          "prereq_activity_link_href",
+          "prereq_activity_name",
+          "prereq_activity_title",
+          "prereq_user_activity_status",
+          "show_detail",
+          "title",
+          "user_activity_status",
+          "min_tier_id",
+          "locked_by_tier"
+        ],
+        "query": {
+          "type": "activities_by_name",
+          "args": {
+            "names": [
+              "latest: article - merchspidermanstoriesmmh",
+              "latest: article - merchshehulkmmhep9",
+              "latest: article - tvshehulkep9recap",
+              "latest:  article - tvwerewolfbynightdarkmcu",
+              "latest:  article - movieblackpantherposters",
+              "latest:  video - connycc22day4recap",
+              "latest:  video - connycc22bestof",
+              "latest:  article - connycc22day3recap",
+              "latest: article - merchshehulkmmhep8",
+              "latest:  article - connycc22day2recap",
+              "latest:  article - tvwerewolfbynightdisney+",
+              "latest:  article - generalmilb",
+              "latest:  article - connycc22day1recap",
+              "latest: article - tvshehulkep8recap",
+              "latest:  video - generalbeyondamazingexhibition",
+              "latest:  article - merchchroniclemarvelmazes",
+              "latest:  article - merchoracledeck",
+              "latest:  article - generalnyplspidermancard",
+              "latest:  article - merchoctober22",
+              "latest:  video - generalmarvelminutenycc22",
+              "latest:  article - movieblackpanthertrailer",
+              "survey answered d73684fd-5b79-4a92-bfe6-3c154301e1b6",
+              "latest:  article - tvwerewolfbynightfeaturette",
+              "latest: article - merchshehulkmmhep7",
+              "latest:  article - moviearmorwarstheatricalrelease",
+              "latest:  article - merchfallmmh",
+              "latest: article - tvshehulkep7recap",
+              "latest:  article - merchtargetblackpanther",
+              "latest:  article - moviedeadpool3",
+              "latest:  article - mercharizonasuperlxr",
+              "latest:  article - merchpenguincaptainamerica",
+              "latest: article - merchshehulkmmhep6",
+              "latest:  article - parksachulk",
+              "latest: article - tvshehulkep6recap",
+              "latest:  article - merchtoyawards",
+              "latest:  article - merchpenguinblackpanther",
+              "survey answered ea6dd091-4d42-4981-9d32-6c4eeb48e164",
+              "latest: article - merchshehulkmmhep5",
+              "latest: article - tvshehulkep5recap",
+              "latest: podcast - wastelandersdoom",
+              "latest: podcast - marvelsvoices",
+              "latest: podcast - marvelspulllist",
+              "latest: podcast - thisweekinmarvel",
+              "latest:  article - moviedeadpool3",
+              "latest:  article - mercharizonasuperlxr",
+              "latest:  article - merchtargetblackpanther",
+              "latest:  article - moviearmorwarstheatricalrelease",
+              "Shop Marvel Must Haves: 'She-Hulk' Episode 7",
+              "latest:  article - merchoctober22",
+              "latest:  article - connycc22day1recap",
+              "latest:  article - tvwerewolfbynightfeaturette",
+              "latest: article - merchshehulkmmhep5",
+              "visit the marvel shop"
+            ]
+          }
+        }
+      }
+    }
+  }
+}</value>
   </data>
   <data name="MonsterQnaBody" xml:space="preserve">
     <value>{"ct_rpc_action":"questionnaire_submit","answers":{"1":{"selected_answers":["1"],"response_text":null}},"questionnaire_id":"d73684fd-5b79-4a92-bfe6-3c154301e1b6","questionnaire_type":"survey"}</value>

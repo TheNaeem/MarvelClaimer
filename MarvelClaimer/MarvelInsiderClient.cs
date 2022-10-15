@@ -11,7 +11,7 @@ public class MarvelInsiderClient : RestClient
         Authenticator = new MarvelAuthenticator(cookies);
     }
 
-    public async void DoActivities(int id, string body)
+    public void DoActivities(int id, string body)
     {
         var req = new RestRequest($"request?widgetId={id}", Method.Post);
 
@@ -38,7 +38,7 @@ public class MarvelInsiderClient : RestClient
 
         foreach (var activity in list)
         {
-            if (string.IsNullOrEmpty(activity.link_href))
+            if (string.IsNullOrEmpty(activity.link_href) || activity.link_href == "https://loyalty.marvel.com/ca/d383c57c6d9c646fc3720bb6136f15ea")
                 continue;
 
             if (activity.link_href.StartsWith('/'))
@@ -46,7 +46,7 @@ public class MarvelInsiderClient : RestClient
 
             Log.Information("Opening link {Link}", activity.link_href);
 
-            Chrome.OpenUrl(activity.link_href);
+            Chrome.OpenUrl(activity.link_href, true);
         }
     }
 
@@ -59,9 +59,22 @@ public class MarvelInsiderClient : RestClient
             code = answer
         });
 
-        Execute(req);
+        var response = Execute(req);
 
-        Log.Information("Redeemed {id} with answer {answer}", id, answer);
+        if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
+        {
+            Log.Error("Code redemption request {Id} unsuccessful.", id);
+            return;
+        }
+
+        using var doc = JsonDocument.Parse(response.Content);
+
+        if (!doc.RootElement.TryGetProperty("points", out var points))
+        {
+            return;
+        }
+
+        Log.Information("Redeemed {id} with answer {answer} and was awarded {Points} points!", id, answer, points.GetInt32());
     }
 
     public void FillQuestionare(string body)
@@ -69,17 +82,40 @@ public class MarvelInsiderClient : RestClient
         var req = new RestRequest("questionnaire/rpc", Method.Post);
         req.AddJsonBody(body);
 
-        Execute(req);
+        var response = Execute(req);
+
+        if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
+        {
+            Log.Error("Questionnaire request unsuccessful.");
+            return;
+        }
+
+        using var doc = JsonDocument.Parse(response.Content);
+
+        if (!doc.RootElement.TryGetProperty("points_awarded", out var pointsAwarded))
+        {
+            return;
+        }
+
+        Log.Information("Got {Count} points from questionnaire!", pointsAwarded.GetInt32());
     }
 
     public void VisitTwitter()
     {
         Execute(new("ca/c2a92ef1d1757d9005adc5f0861fa621"));
+        Log.Information("Visited Facebook!");
     }
 
     public void VisitFacebook()
     {
         Execute(new("ca/c2a92ef1d1757d90c3720bb6136f15ea"));
+        Log.Information("Visited Facebook!");
+    }
+
+    public void VisitSnapchat()
+    {
+        Execute(new("ca/24a3e9a05e2eda010ce37508486f02ff"));
+        Log.Information("Visited Snapchat!");
     }
 
     public void DoReferrals()
