@@ -1,7 +1,7 @@
 ﻿using RestSharp;
 using RestSharp.Authenticators;
 
-namespace MarvelClaimer;
+namespace MarvelClaimer.Marvel;
 
 public class MarvelAuthenticator : IAuthenticator
 {

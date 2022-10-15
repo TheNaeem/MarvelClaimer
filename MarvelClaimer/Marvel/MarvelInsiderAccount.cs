@@ -1,14 +1,21 @@
-﻿using RestSharp;
-using MarvelClaimer.Models;
+﻿using MarvelClaimer.Models;
+using OpenQA.Selenium;
+using RestSharp;
 using System.Text.Json;
 
-namespace MarvelClaimer;
+namespace MarvelClaimer.Marvel;
 
-public class MarvelInsiderClient : RestClient
+public class MarvelInsiderAccount : IDisposable
 {
-    public MarvelInsiderClient(string cookies) : base("https://loyalty.marvel.com")
+    public string Email { get; set; }
+    public string Password { get; set; }
+    private MarvelInsiderClient _client;
+
+    public MarvelInsiderAccount(string password, string email)
     {
-        Authenticator = new MarvelAuthenticator(cookies);
+        _client = new(Chrome.GetCookie("https://www.marvel.com/insider/home"));
+        Email = email;
+        Password = password;
     }
 
     public void DoActivities(int id, string body)
@@ -17,7 +24,7 @@ public class MarvelInsiderClient : RestClient
 
         req.AddJsonBody(body);
 
-        var response = Execute(req);
+        var response = _client.Execute(req);
 
         if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
             return;
@@ -59,7 +66,7 @@ public class MarvelInsiderClient : RestClient
             code = answer
         });
 
-        var response = Execute(req);
+        var response = _client.Execute(req);
 
         if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
         {
@@ -82,7 +89,7 @@ public class MarvelInsiderClient : RestClient
         var req = new RestRequest("questionnaire/rpc", Method.Post);
         req.AddJsonBody(body);
 
-        var response = Execute(req);
+        var response = _client.Execute(req);
 
         if (!response.IsSuccessful || string.IsNullOrEmpty(response.Content))
         {
@@ -102,19 +109,19 @@ public class MarvelInsiderClient : RestClient
 
     public void VisitTwitter()
     {
-        Execute(new("ca/c2a92ef1d1757d9005adc5f0861fa621"));
+        _client.Execute(new("ca/c2a92ef1d1757d9005adc5f0861fa621"));
         Log.Information("Visited Facebook!");
     }
 
     public void VisitFacebook()
     {
-        Execute(new("ca/c2a92ef1d1757d90c3720bb6136f15ea"));
+        _client.Execute(new("ca/c2a92ef1d1757d90c3720bb6136f15ea"));
         Log.Information("Visited Facebook!");
     }
 
     public void VisitSnapchat()
     {
-        Execute(new("ca/24a3e9a05e2eda010ce37508486f02ff"));
+        _client.Execute(new("ca/24a3e9a05e2eda010ce37508486f02ff"));
         Log.Information("Visited Snapchat!");
     }
 
@@ -126,7 +133,7 @@ public class MarvelInsiderClient : RestClient
         for (int i = 0; i < 10; i++)
         {
 
-            var code = new string(Enumerable.Repeat(chars, 8).Select(s => s[random.Next(s.Length)]).ToArray()); 
+            var code = new string(Enumerable.Repeat(chars, 8).Select(s => s[random.Next(s.Length)]).ToArray());
             var link = "https://marvel.com/insider?_cts_=" + code;
 
             var refReq = new RestRequest("user/rpc", Method.Post);
@@ -135,12 +142,22 @@ public class MarvelInsiderClient : RestClient
             {
                 dest_id = 2,
                 reason_id = 6,
-                code = code,
+                code,
                 url = link,
                 ct_rpc_action = "process_social_post"
             });
 
-            Execute(refReq);
+            _client.Execute(refReq);
         }
     }
+
+    public void SignOut()
+    {
+        Chrome.OpenUrl("https://www.marvel.com/");
+
+        Chrome.WaitForElement(By.Id("mvl-user-menu__desktop"))?.Click();
+        Chrome.WaitForElement(By.Id("logout"))?.Click();
+    }
+
+    public void Dispose() => _client.Dispose();
 }

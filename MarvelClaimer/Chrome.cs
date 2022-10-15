@@ -10,7 +10,6 @@ namespace MarvelClaimer;
 public static class Chrome
 {
     private static ChromeDriver _driver;
-    private static CacheFile _cache;
 
     private static void CloseAllInstances()
     {
@@ -20,13 +19,6 @@ public static class Chrome
 
     static Chrome()
     {
-        if (!File.Exists("cache.json"))
-        {
-            File.WriteAllText("cache.json", JsonConvert.SerializeObject(new CacheFile()));
-        }
-
-        _cache = JsonConvert.DeserializeObject<CacheFile>(File.ReadAllText("cache.json"));
-
         CloseAllInstances();
 
         var chromeProfileDir = Path.Join(
@@ -97,7 +89,7 @@ public static class Chrome
         CloseAllInstances();
     }
 
-    private static IWebElement? WaitForElement(By by)
+    public static IWebElement? WaitForElement(By by)
     {
         var wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 30));
         wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotVisibleException));
@@ -133,45 +125,8 @@ public static class Chrome
         return element;
     }
 
-    public static string CreateMarvelAccount()
+    public static void SwitchToFrame(string frame)
     {
-        var email = _cache.emailBase + '+' + _cache.lastNum + "@gmail.com";
-        var pw = _cache.password;
-
-        var dob = new DateTime(2000, DateTime.Today.Month, DateTime.Today.Day);
-
-        OpenUrl("https://www.marvel.com/insider");
-
-        WaitForElement(By.ClassName("user-menu-tab"))?.Click();
-
-        _driver.SwitchTo().Frame("oneid-iframe");
-        WaitForElement(By.Id("BtnCreateAccount"))?.Click();
-
-        WaitForElement(By.Id("InputFirstName"))?.SendKeys("Parse");
-        WaitForElement(By.Id("InputLastName"))?.SendKeys("Jason");
-        WaitForElement(By.Id("InputEmail"))?.SendKeys(email);
-        WaitForElement(By.Id("password-new"))?.SendKeys(pw);
-        WaitForElement(By.Id("InputDOB"))?.SendKeys(dob.ToString("MM/dd/yyyy"));
-        Thread.Sleep(1000);
-
-        WaitForElement(By.Id("BtnSubmit"))?.Click();
-
-        Thread.Sleep(10000);
-
-        //_driver.Navigate().Refresh();
-
-        _cache.lastNum++;
-
-        File.WriteAllText("cache.json", JsonConvert.SerializeObject(_cache));
-
-        return email;
-    }
-
-    public static void SignOut()
-    {
-        OpenUrl("https://www.marvel.com/");
-
-        WaitForElement(By.Id("mvl-user-menu__desktop"))?.Click();
-        WaitForElement(By.Id("logout"))?.Click();
+        _driver.SwitchTo().Frame(frame);
     }
 }
