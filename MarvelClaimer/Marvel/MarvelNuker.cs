@@ -41,7 +41,7 @@ public class MarvelNuker
 
         var dob = new DateTime(2000, DateTime.Today.Month, DateTime.Today.Day);
 
-        Chrome.OpenUrl("https://www.marvel.com/insider");
+        Chrome.OpenUrl("https://www.marvel.com/");
 
         Chrome.WaitForElement(By.ClassName("user-menu-tab"))?.Click();
 
