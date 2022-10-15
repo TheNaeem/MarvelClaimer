@@ -2,6 +2,7 @@
 
 using MarvelClaimer;
 using MarvelClaimer.Marvel;
+using OpenQA.Selenium;
 
 Log.Logger =
     new LoggerConfiguration()

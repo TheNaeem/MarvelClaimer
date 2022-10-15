@@ -155,7 +155,7 @@ public class MarvelInsiderAccount : IDisposable
     {
         Chrome.OpenUrl("https://www.marvel.com/");
 
-        Chrome.WaitForElement(By.Id("mvl-user-menu__desktop"))?.Click();
+        Chrome.WaitForElement(By.Id("user-menu-tab"))?.Click();
         Chrome.WaitForElement(By.Id("logout"))?.Click();
     }
 
