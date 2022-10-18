@@ -4,4 +4,4 @@ We made this project to farm Fortnite x Marvel comic cosmetic codes on Marvel In
 
 This tool automatically generates Marvel accounts through Chrome and loads points on them redeemable for Marvel Unlimited.
 
-Shout out to [Kemo](https://github.com/kem0x) & [Samuel](https://github.com/samuelsiv) for helping out with this,
+Shout out to [Kemo](https://github.com/kem0x), [Samuel](https://github.com/samuelsiv), & [PeQu](https://github.com/PeQuLeaks) for helping out with this,
